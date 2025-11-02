@@ -5,7 +5,7 @@ using UnityEngine;
 namespace RepoAdminMenu.Utils {
     internal class ValuableUtil {
 
-        private static SortedDictionary<string, GameObject> tinyValuables = new SortedDictionary<string, GameObject>();
+
         private static SortedDictionary<string, GameObject> smallValuables = new SortedDictionary<string, GameObject>();
         private static SortedDictionary<string, GameObject> mediumValuables = new SortedDictionary<string, GameObject>();
         private static SortedDictionary<string, GameObject> bigValuables = new SortedDictionary<string, GameObject>();
@@ -14,7 +14,7 @@ namespace RepoAdminMenu.Utils {
         private static SortedDictionary<string, GameObject> veryTallValuables = new SortedDictionary<string, GameObject>();
 
         public static void Init() {
-            tinyValuables.Clear();
+
             smallValuables.Clear();
             mediumValuables.Clear();
             bigValuables.Clear();
@@ -22,12 +22,6 @@ namespace RepoAdminMenu.Utils {
             tallValuables.Clear();
             veryTallValuables.Clear();
 
-            foreach (LevelValuables levelValuables in RunManager.instance.levelCurrent.ValuablePresets) {
-                foreach (GameObject valuable in levelValuables.tiny) {
-                    string name = valuable.name.Replace("Valuable ", string.Empty);
-                    if (!tinyValuables.ContainsKey(name))
-                        tinyValuables.Add(name, valuable);
-                }
 
                 foreach (GameObject valuable in levelValuables.small) {
                     string name = valuable.name.Replace("Valuable ", string.Empty);
@@ -69,9 +63,7 @@ namespace RepoAdminMenu.Utils {
 
         }
 
-        public static SortedDictionary<string, GameObject> getTinyValuables() {
-            return tinyValuables;
-        }
+
 
         public static SortedDictionary<string, GameObject> getSmallValuables() {
             return smallValuables;
